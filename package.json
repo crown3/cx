@@ -1,7 +1,7 @@
 {
   "name": "@c/cx",
   "author": "Crown3",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/cx.esm.js",
