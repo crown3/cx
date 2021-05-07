@@ -14,8 +14,8 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "test:watch": "tsdx test --watch",
+    "lint": "tsdx lint --fix",
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
@@ -27,7 +27,7 @@
   },
   "prettier": {
     "printWidth": 80,
-    "semi": true,
+    "semi": false,
     "singleQuote": true,
     "trailingComma": "es5"
   },
