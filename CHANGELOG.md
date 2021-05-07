@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/crown3/cx/compare/v1.0.0...v1.0.1) (2021-05-07)
+
+
+### Bug Fixes
+
+* update package name ([51b095e](https://github.com/crown3/cx/commit/51b095e9ace52a74c12cb8684fca2fa636721145))
+
 # 1.0.0 (2021-05-07)
 
 
