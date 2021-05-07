@@ -1,7 +1,10 @@
 {
+  "name": "@c/cx",
+  "author": "Crown3",
   "version": "0.0.0-development",
   "license": "MIT",
   "main": "dist/index.js",
+  "module": "dist/cx.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -20,6 +23,14 @@
     "analyze": "size-limit --why"
   },
   "peerDependencies": {},
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.10.2",
+    "husky": "^6.0.0",
+    "size-limit": "^4.10.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.2.0",
+    "typescript": "^4.2.4"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
@@ -31,9 +42,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "@c/cx",
-  "author": "Crown3",
-  "module": "dist/cx.esm.js",
   "size-limit": [
     {
       "path": "dist/cx.cjs.production.min.js",
@@ -44,14 +52,6 @@
       "limit": "10 KB"
     }
   ],
-  "devDependencies": {
-    "@size-limit/preset-small-lib": "^4.10.2",
-    "husky": "^6.0.0",
-    "size-limit": "^4.10.2",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.2.0",
-    "typescript": "^4.2.4"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/crown3/cx.git"
@@ -67,5 +67,8 @@
       "@semantic-release/npm",
       "@semantic-release/git"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
