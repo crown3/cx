@@ -13,6 +13,10 @@
   "engines": {
     "node": ">=10"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crown3/cx.git"
+  },
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
@@ -52,10 +56,6 @@
       "limit": "10 KB"
     }
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/crown3/cx.git"
-  },
   "release": {
     "branches": [
       "main"
