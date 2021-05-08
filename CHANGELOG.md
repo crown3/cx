@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/crown3/cx/compare/v1.0.1...v1.0.2) (2021-05-08)
+
+
+### Bug Fixes
+
+* fix ci err ([2b0d91b](https://github.com/crown3/cx/commit/2b0d91b26a6096bfc58687c6886f22c062151f69))
+* fix ci err ([4068661](https://github.com/crown3/cx/commit/406866158352baee0cb583660b5f9394b5edd13d))
+
 ## [1.0.1](https://github.com/crown3/cx/compare/v1.0.0...v1.0.1) (2021-05-07)
 
 
