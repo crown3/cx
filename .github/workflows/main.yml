@@ -58,6 +58,7 @@ jobs:
 
       - name: Last check before release
         run: |
+          yarn
           yarn lint
           yarn test
           yarn build
