@@ -56,11 +56,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Last check before release
+      - name: Build for release
         run: |
           yarn
-          yarn lint
-          yarn test
           yarn build
 
       - name: Install Semantic Release

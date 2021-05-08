@@ -7,9 +7,9 @@
 <a href="https://github.com/crown3/cx"><img alt="GitHub license" src="https://img.shields.io/github/license/crown3/cx?style=flat-square"></a>
 </p>
 
-<p align="center"><a href="./docs/README.zh-CN.md">中文</a>｜English</p>
+<p align="center">中文｜<a href="../README.md">English</a></p>
 
-> `cx` is a TypeScript utility that contains conditional processing, which can process both CSS Module and native CSS className (Inspired by [classNames/bind](https://github.com/JedWatson/classnames))
+> cx 是一个包含条件处理, 可以同时处理 CSS Module 和原生 CSS 的 className 的工具函数，完全由 TypeScript 编写(灵感来自于[classNames/bind](https://github.com/JedWatson/classnames))
 
 ```js
 cx(['class1', { class2: true }], ['class3', { class4: false, class5: true }])
@@ -26,7 +26,7 @@ npm install @crown3/cx
 yarn add @crown3/cx
 ```
 
-Use with TypeScript
+在 TypeScript 中使用
 
 ```typescript
 import { classNames, CX } from '@crown3/cx'
@@ -37,7 +37,7 @@ cx(['hello'], ['world'])
 // => 'hello-module-class world'
 ```
 
-Or in JavaScript
+或者直接在 JavaScript 中使用
 
 ```javascript
 import { classNames } from '@crown3/cx'
@@ -48,11 +48,11 @@ const cx = classNames.bind(styles)
 
 ## Use case
 
-`cx` can receive at most two arrays as parameters, which has same data structure
+`cx`最多能接收两个数组作为参数，两个数组接受的数据类型完全一致
 
-- The first array consists of CSS Module classNames
-  - But here is different from the [classNames](https://github.com/JedWatson/classnames), if the CSS Module doesn't contain the classNames you pass in, cx will **ignore it directly**
-- The second array(you can ignore it) is composed of native className, and only performs conditional processing, and then converted to string output
+- 其中第一个数组全部由 CSS Module classNames 组成
+  - 但这里和 [classNames](https://github.com/JedWatson/classnames)处理逻辑不同的是，如果 CSS Module 里面不包含你传入的 classNames，`cx` 会**直接忽略它**
+- 第二个数组(可以不传)完全由原生的 className 组成，只做单纯的条件处理，然后转成 string 输出
 
 ```javascript
 // mock a css module styles
