@@ -2,7 +2,8 @@
 
 <p align="center">
 <a href="https://github.com/crown3"><img alt="Author Info" src="https://img.shields.io/badge/-Made%20by%20Crown3-grey?logo=c&style=flat-square"></a>
-<a href="https://github.com/crown3"><img alt="Author Info" src="https://img.badgesize.io/https:/unpkg.com/@crown3/cx/dist/cx.cjs.production.min.js?style=flat-square&compression=gzip"></a>
+<a href="https://github.com/crown3"><img alt="Gzip size" src="https://img.badgesize.io/https:/unpkg.com/@crown3/cx/dist/cx.cjs.production.min.js?style=flat-square&compression=gzip"></a>
+<a href="https://app.codecov.io/gh/crown3/cx/"><img alt="Codecov" src="https://img.shields.io/codecov/c/github/crown3/cx?style=flat-square"></a>
 <a href="https://www.npmjs.com/package/@crown3/cx"><img alt="npm" src="https://img.shields.io/npm/v/@crown3/cx?style=flat-square"></a>
 <a href="https://github.com/crown3/cx"><img alt="GitHub license" src="https://img.shields.io/github/license/crown3/cx?style=flat-square"></a>
 </p>
