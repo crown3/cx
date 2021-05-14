@@ -9,11 +9,18 @@
 
 <p align="center"><a href="./docs/README.zh-CN.md">中文</a>｜English</p>
 
-> `cx` is a TypeScript utility that contains conditional processing, which can process both CSS Module and native CSS className (Inspired by [classNames/bind](https://github.com/JedWatson/classnames))
+> `cx` is a TypeScript utility that contains conditional processing, can process both CSS Module and native CSS className (Inspired by [classNames/bind](https://github.com/JedWatson/classnames))
 
 ```js
-cx(['class1', { class2: true }], ['class3', { class4: false, class5: true }])
-// => 'module-class-1 module-class-2 class3 class5'
+cx('a', true, { c: true })
+// => 'a c'  just like classNames function
+
+// But when you bind styles in cx and the first argument is arr
+import styles from './style.module.css'
+import classNames from '@crown3/cx'
+const cx = classNames.bind(styles)
+cx(['a', { b: true }], 'c', { d: true }, [{ e: true }])
+// => 'a-module-class b-module-class c d e
 ```
 
 ## Getting Started
@@ -29,11 +36,11 @@ yarn add @crown3/cx
 Use with TypeScript
 
 ```typescript
-import { classNames, CX } from '@crown3/cx'
+import classNames, { CX } from '@crown3/cx'
 import styles from './demo.module.css'
 
 const cx: CX = classNames.bind(styles)
-cx(['hello'], ['world'])
+cx(['hello'], 'world')
 // => 'hello-module-class world'
 ```
 
@@ -46,32 +53,56 @@ import styles from './demo.module.css'
 const cx = classNames.bind(styles)
 ```
 
-## Use case
+## Documentation
 
-`cx` can receive at most two arrays as parameters, which has same data structure
+**Only when you bind this to CSS Module styles and the first argument is array**, cx will handle all arguments in this array as CSS Module (Others are still handled as normal CSS styles)
 
-- The first array consists of CSS Module classNames
-  - But here is different from the [classNames](https://github.com/JedWatson/classnames), if the CSS Module doesn't contain the classNames you pass in, cx will **ignore it directly**
-- The second array(you can ignore it) is composed of native className, and only performs conditional processing, and then converted to string output
+- Note: If you bind a CSS Module but the first argument isn't array, cx will handle all arguments as normal CSS styles
+- The processing logic of the arguments is similar with [classNames/bind](https://github.com/JedWatson/classnames), all arguments will do a conditionally handle and if the result is true, the key will be output
+  - But there's a little different with [classNames/bind](https://github.com/JedWatson/classnames) in handling CSS Module styles, when the class name doesn't exist in the CSS Module, cx will ignore this instead of returning it as a string like [classNames/bind](https://github.com/JedWatson/classnames)
 
 ```javascript
-// mock a css module styles
-const styles = { class1: 'class1-xx' }
+// mock a CSS Module styles
+import classNames from '@crown3/cx'
+
+const cx = classNames
+cx([{ a: true, b: false }], 'c', undefined, null) // => 'a c'
+
+// But when you bind styles
+const styles = { a: 'a1', b: 'b2' }
 const cx = classNames.bind(styles)
 
-cx(['class1', 'class2'])
-// => 'class1-xx'
+cx(['a', { b: true }]) // => 'a1 b2'
+// But if first arg isn't array, cx will handle all arguments as normal css, even if you bind styles
+cx('a', ['b']) // => 'a b'
 
-// the array can accept any number of items which can be a string, array or Object
+// the arguments can accept any number of items which can be a string, boolean, number, array or Object
 // If the value associated with a given key is falsy, the key won't be included in the output
-cx(['class1', { class1: true }, [{ [`class${1}`]: true }]])
-// => 'class1-xx class1-xx class1-xx'
-cx([0, undefined, null, false])
-// => ''
+cx(['a', { b: true }, [{ b: true }, 'c']], 'a', ['b'], [{ c: true }])
+// => 'a1 b2 b2 a b c'
+// Note: there hasn't 'cx' in our output, because the Module styles doesn't have the 'c' key
 
-// the second arr will be handled as normal className
-cx(['class1'], ['hello', { world: true }])
-// => 'class1-xx hello world'
+// Even using it like this
+cx(
+  [
+    {
+      toString() {
+        return 'a'
+      },
+    },
+    {
+      toString() {
+        return 'c'
+      },
+    },
+  ],
+  {
+    toString() {
+      return 'b'
+    },
+  }
+)
+// => 'a1 b'
 ```
 
 ## License
