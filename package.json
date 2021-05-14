@@ -21,7 +21,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
-    "test:watch": "tsdx test --watch",
+    "test:watch": "tsdx test --watch --onlyChanged",
     "lint": "tsdx lint --fix",
     "size": "size-limit",
     "analyze": "size-limit --why"

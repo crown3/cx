@@ -1,0 +1,7 @@
+{
+  "jestrunner.jestCommand": "npm run test --",
+  "jestrunner.debugOptions": {
+    "program": null,
+    "runtimeArgs": ["${workspaceRoot}/node_modules/tsdx/dist/index.js", "test"]
+  }
+}
