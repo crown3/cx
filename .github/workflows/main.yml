@@ -56,10 +56,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Build for release
+      - name: Build and generate codecov for release
         run: |
           yarn
           yarn build
+          yarn test --coverage
 
       - name: Install Semantic Release
         run: |
@@ -68,10 +69,16 @@ jobs:
             @semantic-release/release-notes-generator \
             @semantic-release/changelog \
             @semantic-release/npm \
-            @semantic-release/git
+            @semantic-release/git \
+            codecov
           echo "$(yarn global bin)" >> $GITHUB_PATH
 
       - run: semantic-release
         env:
           GH_TOKEN: ${{secrets.GH_TOKEN}}
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Upload code coverage report
+        env:
+          CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
+        run: codecov
